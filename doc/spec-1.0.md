@@ -5,9 +5,9 @@ The file should be a nodejs module, defining:
 * `formatVersion` - the string constant '1.0'
 * `assets` - a JavaScript object containing zero or more of:
   * `backends` - a JavaScript object containing `Backend` items
-  * `statics` - a JavaScript object containing `Static` items
-  * `redirects` - a JavaScript object containing `Redirect` items
   * `images` - a JavaScript object containing `Image` items
+  * `redirects` - a JavaScript object containing `Redirect` items
+  * `statics` - a JavaScript object containing `Static` items
 * `customers` - a JavaScript object containing `Customer` items
 
 # Basic deterministic syntax
@@ -89,14 +89,11 @@ Some further notes on these definitions:
 * fields:
   * application: the image name of the application to serve for this domain
 
-## Static
+## Image
 
-* key: the domain on which a static website needs to be served
+* key: the image name by which this is referred to in 'application' fields in backends
 * fields:
-  * repo: the git repository to pull from (optional)
-  * folder: the folder that should be served as the domain root (optional)
-  * pullFrequence: maximum interval, in milliseconds, between two git pulls (optional)
-  * owner: the username of the owner
+  * pull: Docker image is identified on [the Docker registry](http://registry.hub.docker.com/)
 
 ## Redirect
 
@@ -105,11 +102,14 @@ Some further notes on these definitions:
   * redirectHost: the host to redirect to
   * owner: the username of the owner
 
-## Image
+## Static
 
-* key: the image name by which this is referred to in 'application' fields in backends
+* key: the domain on which a static website needs to be served
 * fields:
-  * pull: Docker image is identified on [the Docker registry](http://registry.hub.docker.com/)
+  * repo: the git repository to pull from (optional)
+  * folder: the folder that should be served as the domain root (optional)
+  * pullFrequence: maximum interval, in milliseconds, between two git pulls (optional)
+  * owner: the username of the owner
 
 ## Customer
 
