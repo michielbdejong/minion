@@ -107,8 +107,9 @@ Some further notes on these definitions:
 
 ## Image
 
-* key: the image name by which this Docker image is identified on [the Docker registry](http://registry.hub.docker.com/)
-* fields: (no mandatory fields)
+* key: the image name by which this is referred to in 'application' fields in backends
+* fields:
+  * pull: Docker image is identified on [the Docker registry](http://registry.hub.docker.com/)
 
 ## Customer
 
